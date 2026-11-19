@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="J.A.R.V.I.S. Mobile Lite — assistente pessoal experimental">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>J.A.R.V.I.S. Mobile Lite</title>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="eyebrow">SISTEMA DE ASSISTÊNCIA PESSOAL</div>
+      <h1>J.A.R.V.I.S<span>.</span></h1>
+      <p class="sub">MOBILE LITE <i id="statusDot"></i> <span id="status">PRONTO</span></p>
+    </header>
+
+    <section class="core" aria-label="Assistente">
+      <div class="ring ring-a"></div><div class="ring ring-b"></div>
+      <button id="micBtn" class="orb" aria-label="Começar a ouvir">
+        <span class="mic">🎙</span>
+        <small>TOCAR PARA FALAR</small>
+      </button>
+    </section>
+
+    <section class="panel">
+      <div class="label">RESPOSTA DO SISTEMA</div>
+      <p id="reply">Olá. Sou o J.A.R.V.I.S. Como posso ajudar?</p>
+      <div class="label input-label">A TUA MENSAGEM</div>
+      <form id="chatForm">
+        <input id="message" autocomplete="off" placeholder="Escreve um comando..." maxlength="300">
+        <button type="submit" class="send">ENVIAR</button>
+      </form>
+      <div class="actions">
+        <button id="listenBtn" class="secondary">ATIVAR ESCUTA</button>
+        <button id="clearBtn" class="secondary">LIMPAR CONVERSA</button>
+      </div>
+    </section>
+
+    <section class="quick">
+      <div class="label">COMANDOS RÁPIDOS</div>
+      <div class="chips">
+        <button data-command="Que horas são?">Horas</button>
+        <button data-command="Abre o YouTube">YouTube</button>
+        <button data-command="Abre o WhatsApp">WhatsApp</button>
+        <button data-command="Ajuda">Ajuda</button>
+      </div>
+    </section>
+    <footer>VERSÃO 0.1 · A IA ONLINE SERÁ LIGADA NUMA PRÓXIMA ETAPA</footer>
+  </main>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+    }
+  </script>
+</body>
+</html>
